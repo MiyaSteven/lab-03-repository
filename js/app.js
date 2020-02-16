@@ -1,24 +1,23 @@
 'use strict';
 
-
-
-$('.pagination').click(function(){  
-    page = $(this).attr(${page});  renderJSON(page, defaultSort);
-});
+let page = 1;
+//let titleSort =
 
 //Getting data from the JSON file using AJAX
-$.ajax(`data/page-${page}.json`, {method: 'GET' , dataType: 'JSON'})
-.then(hornObjects => {
-    hornObjects.forEach(hornThing => {
-        new Horn(hornThing).render();
-    })
-    uniqueArray();
-    addDropDownMenu();
-    userSelection();
-})
+const renderFunction = (page, sort) => {
+    let jsonPath = `data/page-${page}.json`;
+    $.ajax(jsonPath, {method: 'GET', dataType: 'JSON'})
+        .then(hornObjects => {
+            hornObjects.forEach(hornThing => {
+                new Horn(hornThing).render();
+            });
+            uniqueArray();
+            addDropDownMenu();
+            userSelection();
+    });
+};
 
 //Globar variables
-let page = 
 let hornsArray = [];
 let keywordsArray = [];
 let hornsArray2 = [];
@@ -78,11 +77,19 @@ let userSelection = () => {
     });
 };
 
+// $(document).ready(function(){
+//     $('button').click(function(){
+//      $('p').hide();
+//     });
+//   });
 
-
+//I added this function to start the bridge into the sort functions we need to add but I'm linking the button wrong.
+// $('.button').click(function(){  
+//     page = $(this).attr('data-page');  
+//     renderJSON(page, titleSort);
+// });
 
 console.log(hornsArray);
 console.log(keywordsArray);
 console.log(hornsArray2);
 console.log(keywordsArray2);
-
