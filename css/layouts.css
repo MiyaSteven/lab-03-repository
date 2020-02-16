@@ -1,0 +1,23 @@
+h1{
+    text-align: center;
+}
+
+section img{
+    height: 200px;
+    border-radius: 50px;
+}
+
+section {
+    margin: auto;
+    height: 450px;
+    width: 450px;
+    float: left;
+}
+
+#photo-template {
+    display: none;
+}
+
+footer{
+    clear: both;
+}
