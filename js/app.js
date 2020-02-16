@@ -4,7 +4,7 @@ let page = 1;
 //let titleSort =
 
 //Getting data from the JSON file using AJAX
-const renderFunction = (page, sort) => {
+// const renderFunction = (page, sort) => {
     let jsonPath = `data/page-${page}.json`;
     $.ajax(jsonPath, {method: 'GET', dataType: 'JSON'})
         .then(hornObjects => {
@@ -15,7 +15,7 @@ const renderFunction = (page, sort) => {
             addDropDownMenu();
             userSelection();
     });
-};
+// };
 
 //Globar variables
 let hornsArray = [];
