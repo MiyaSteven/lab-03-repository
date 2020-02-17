@@ -4,7 +4,7 @@ let page = 1;
 //let titleSort =
 
 //Getting data from the JSON file using AJAX
-const renderFunction = (page, sort) => {
+// const renderFunction = (page, sort) => {
     let jsonPath = `data/page-${page}.json`;
     $.ajax(jsonPath, {method: 'GET', dataType: 'JSON'})
         .then(hornObjects => {
@@ -15,13 +15,11 @@ const renderFunction = (page, sort) => {
             addDropDownMenu();
             userSelection();
     });
-};
+// };
 
-//Globar variables
+//Global variables
 let hornsArray = [];
 let keywordsArray = [];
-let hornsArray2 = [];
-let keywordsArray2 = [];
 
 //Constructor function
 function Horn (hornThing){
@@ -36,7 +34,6 @@ function Horn (hornThing){
 Horn.prototype.render = function(){
     const hornTemplate = $('#photo-template').html();
     const $newSection = $('<section></section>');
-    const $newOption = $('<option></option>');
     $newSection.html(hornTemplate);
     $newSection.find('h2').text(this.title);
     $newSection.addClass('section').attr('class', this.keyword);
@@ -77,6 +74,13 @@ let userSelection = () => {
     });
 };
 
+// const sortByTitle = (hornsArray) => {
+//     hornsArray.sort((a, b) => {
+//         return a.title > b.title ? 1 : -1;
+//     });
+//     return hornsArray;
+// };
+
 // $(document).ready(function(){
 //     $('button').click(function(){
 //      $('p').hide();
@@ -88,8 +92,7 @@ let userSelection = () => {
 //     page = $(this).attr('data-page');  
 //     renderJSON(page, titleSort);
 // });
-
+sortByTitle();
 console.log(hornsArray);
 console.log(keywordsArray);
-console.log(hornsArray2);
-console.log(keywordsArray2);
+
